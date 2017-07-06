@@ -1,0 +1,6 @@
+.idea
+vendor
+cache
+container.php
+composer.lock
+spike-composer-microservice.iml

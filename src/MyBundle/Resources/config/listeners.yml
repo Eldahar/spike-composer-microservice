@@ -1,0 +1,8 @@
+parameters:
+  my.event.listener.user.class: MyBundle\Event\Listener\UserListener
+
+services:
+  my.event.listener.user:
+    class: %my.event.listener.user.class%
+    tags:
+        - { name: doctrine_mongodb.odm.event_listener,  event: postPersist }

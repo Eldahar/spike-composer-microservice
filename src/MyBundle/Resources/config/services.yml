@@ -1,0 +1,26 @@
+parameters:
+  mybundle: 'mybundle'
+  my.data_handler.class: MyBundle\Handler\DataHandler
+  my.command.abstract.class: MyBundle\Command\AbstractCommand
+  my.command.get_user_by_email.class: MyBundle\Command\GetUserByEmailCommand
+  my.command.create_user.class: MyBundle\Command\CreateUserCommand
+
+services:
+  my.data_handler:
+    class: %my.data_handler.class%
+    arguments:
+      - "data_handler"
+
+  my.command.abstract:
+    class: %my.command.abstract.class%
+    abstract: true
+    calls:
+      - [ setContainer, [ "@service_container" ] ]
+
+  my.command.create_user:
+    class: %my.command.create_user.class%
+    parent: my.command.abstract
+
+  my.command.get_user_by_email:
+    class: %my.command.get_user_by_email.class%
+    parent: my.command.abstract

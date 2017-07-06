@@ -1,7 +1,8 @@
 parameters:
-  rest.handler.class: CDI\TestBundle\Handler\RestHandler
-  another.handler.class: CDI\TestBundle\Handler\AnotherHandler
-  first.command.class: CDI\TestBundle\Command\FirstCommand
+  rest.handler.class: TestBundle\Handler\RestHandler
+  another.handler.class: TestBundle\Handler\AnotherHandler
+  first.command.class: TestBundle\Command\FirstCommand
+
 
 services:
   rest.handler:
@@ -16,3 +17,4 @@ services:
     class: %first.command.class%
     calls:
       - [ setHandler, [ "@rest.handler" ] ]
+

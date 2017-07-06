@@ -1,0 +1,36 @@
+imports:
+#  - { resource: parameters.yml }
+    - { resource: security.yml }
+
+doctrine_mongodb:
+    connections:
+        default:
+            server: "%mongodb_server%"
+            options: {}
+    default_database: test_database
+    document_managers:
+        default:
+            auto_mapping: true
+    proxy_namespace:      MongoDBODMProxies
+    proxy_dir:            "%kernel.cache_dir%/doctrine/odm/mongodb/Proxies"
+    auto_generate_proxy_classes:  1
+    hydrator_namespace:   Hydrators
+    hydrator_dir:         "%kernel.cache_dir%/doctrine/odm/mongodb/Hydrators"
+    auto_generate_hydrator_classes:  1
+    persistent_collection_namespace: PersistentCollections
+    persistent_collection_dir: "%kernel.cache_dir%/doctrine/odm/mongodb/PersistentCollections"
+    auto_generate_persistent_collection_classes: 1
+
+parameters:
+  mongodb_server: "mongodb://localhost:27017"
+
+  kernel.debug: true
+
+  request_listener.http_port: 80
+  request_listener.https_port: 443
+
+  database_host: 127.0.0.1
+  database_port: ~
+  database_name: symfony
+  database_user: root
+  database_password: ~

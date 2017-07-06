@@ -1,6 +1,6 @@
 <?php
 
-namespace CDI\TestBundle\Handler;
+namespace TestBundle\Handler;
 
 class RestHandler {
     /**
